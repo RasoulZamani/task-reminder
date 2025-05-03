@@ -1,8 +1,13 @@
 [
     {
         "title": "Retry Novin Jobs",
-        "message": "Get up and stretch your legs.",
-        "datetime": "2025-05-04T8:45:00+03:30",
+        "message": "Search inv.. tasks and retry them if failed",
+        "datetime": "2025-05-04T08:45:00+03:30",
         "repeat": "daily"
+    },
+    {
+        "title": "test tasks",
+        "message": "Get up and stretch your legs.",
+        "datetime": "2025-05-03T14:27:00+03:30"
     }
 ]

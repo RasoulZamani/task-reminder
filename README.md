@@ -23,7 +23,8 @@ Description=Task Reminder
 After=graphical.target
 
 [Service]
-ExecStart=/home/yourusername/bin/task-reminder
+WorkingDirectory=/home/rasoul/Desktop/code/go/task-reminder/
+ExecStart=/home/rasoul/Desktop/code/go/task-reminder/task-reminder
 Restart=always
 RestartSec=5
 Environment=DISPLAY=:0
@@ -31,6 +32,8 @@ Environment=XAUTHORITY=%h/.Xauthority
 
 [Install]
 WantedBy=default.target
+
+
 ```
 and then run these:
 ```
@@ -40,6 +43,7 @@ systemctl --user enable task-reminder.service
 systemctl --user start task-reminder.service
 
 ```
+
 ## usage
 you could write your tasks in the tasks.json file like:
 
