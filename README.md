@@ -13,7 +13,7 @@ A simple task reminder app built in Go that sends notifications and plays a beep
 - Enable PC speaker for beep sound:
   ```bash
   sudo modprobe pcspkr
-## installation and set up
+## installation and setup
 after cloning code you could run it manually (!) or create syestemd for it:
 ```
 nano ~/.config/systemd/user/task-reminder.service
