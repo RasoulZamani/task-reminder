@@ -29,11 +29,19 @@ func loadTasks(filename string) ([]Task, error) {
 	return tasks, nil
 }
 
-func notify(title, message string) {
-	cmd := exec.Command("notify-send", title, message)
+func notify(title, message, iconPath string) {
+	cmd := exec.Command("zenity",
+		"--info",
+		"--title", title,
+		"--text", message,
+		"--ok-label", "Got it!",
+		"--width", "400",
+		"--height", "200",
+		"--window-icon", iconPath,
+	)
 	err := cmd.Run()
 	if err != nil {
-		fmt.Println("Failed to send notification:", err)
+		fmt.Println("Failed to show zenity popup:", err)
 	}
 }
 
@@ -51,7 +59,7 @@ func main() {
 		for i := range tasks {
 			task := &tasks[i]
 			if !task.DateTime.IsZero() && now.After(task.DateTime) && now.Sub(task.DateTime) < time.Second*2 {
-				notify(task.Title, task.Message)
+				notify(task.Title, task.Message, "icons8-notification-500.svg")
 				task.DateTime = time.Time{}
 			}
 		}
