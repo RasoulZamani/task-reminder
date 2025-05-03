@@ -1,7 +1,19 @@
 # Terminal App for Reminder Tasks 
-Simple terminal app for remind your tasks in linux level
+A simple task reminder app built in Go that sends notifications and plays a beep sound when a scheduled task is due. Supports periodic tasks like daily and weekly reminders.
 
-## installation and usage
+
+## Dependencies
+
+- **Go**: [Download Go](https://golang.org/dl/)
+- **Zenity**: Install with `sudo apt-get install zenity`
+- **Beep**: Install with `sudo apt-get install beep`
+
+### Optional (System Configuration)
+
+- Enable PC speaker for beep sound:
+  ```bash
+  sudo modprobe pcspkr
+## installation and set up
 after cloning code you could run it manually (!) or create syestemd for it:
 ```
 nano ~/.config/systemd/user/task-reminder.service
@@ -28,9 +40,23 @@ systemctl --user enable task-reminder.service
 systemctl --user start task-reminder.service
 
 ```
+## usage
+you could write your tasks in the tasks.json file like:
 
-## dependencies
-golang 
+```
+[
+    {
+        "title": "Retry Novin Jobs",
+        "message": "Get up and stretch your legs.",
+        "datetime": "2025-05-04T8:45:00+03:30",
+        "repeat": "daily"
+    }
+]
+```
 
-### TODO:
-add ui for adding tasks
+## License
+MIT License
+
+
+## TODO:
+add ui for adding tasks instead of json files
